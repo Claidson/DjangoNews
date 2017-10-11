@@ -1,0 +1,47 @@
+criar projeto django
+############################
+criar pasta
+mkdir DjangoNews
+cria ambiente visrtual  
+virtualenv news
+ativa-lo
+source news/bin/activate
+instalar django
+pip install django
+criar projeto
+django-admin startproject DjangoNews
+
+vincular ao git
+echo "# DjangoNews" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Claidson/DjangoNews.git
+git push -u origin master
+Você pode propor mudanças (adicioná-las ao Index) usando
+git add <arquivo>
+git add *
+Este é o primeiro passo no fluxo de trabalho básico do git. Para realmente confirmar estas mudanças (isto é, fazer um commit), use
+git commit -m "comentários das alterações"
+Agora o arquivo é enviado para o HEAD, mas ainda não para o repositório remoto.
+git push origin master
+atualizar & mesclar
+para atualizar seu repositório local com a mais nova versão, execute 
+git pull
+na sua pasta de trabalho para obter e fazer merge (mesclar) alterações remotas.
+para fazer merge de um outro branch ao seu branch ativo (ex. master), use
+git merge <branch>
+em ambos os casos o git tenta fazer o merge das alterações automaticamente. Infelizmente, isto nem sempre é possível e resulta em conflitos. Você é responsável por fazer o merge estes conflitos manualmente editando os arquivos exibidos pelo git. Depois de alterar, você precisa marcá-los como merged com
+git add <arquivo>
+antes de fazer o merge das alterações, você pode também pré-visualizá-as usando
+git diff <branch origem> <branch destino>
+No caso de você ter feito algo errado (que seguramente nunca acontece ;) ) você pode sobrescrever as alterações locais usando o commando
+git checkout -- <arquivo>
+isto substitui as alterações na sua árvore de trabalho com o conteúdo mais recente no HEAD. Alterações já adicionadas ao index, bem como novos arquivos serão mantidos.
+
+Se ao invés disso você deseja remover todas as alterações e commits locais, recupere o histórico mais recente do servidor e aponte para seu branch master local desta forma
+git fetch origin
+git reset --hard origin/master
+
+startar aplicação
+django-admin startapp NoticiasTabajara
