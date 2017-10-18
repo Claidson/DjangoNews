@@ -35,6 +35,7 @@ em ambos os casos o git tenta fazer o merge das alterações automaticamente. In
 git add <arquivo>
 antes de fazer o merge das alterações, você pode também pré-visualizá-as usando
 git diff <branch origem> <branch destino>
+http://www.asbpm.com.br/blog/manual-de-instalacao-do-git-plug-ins-eclipse-e-visual-studio-code-e-configuracao-de-solucoes/
 No caso de você ter feito algo errado (que seguramente nunca acontece ;) ) você pode sobrescrever as alterações locais usando o commando
 git checkout -- <arquivo>
 isto substitui as alterações na sua árvore de trabalho com o conteúdo mais recente no HEAD. Alterações já adicionadas ao index, bem como novos arquivos serão mantidos.
