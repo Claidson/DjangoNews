@@ -48,3 +48,6 @@ django-admin startapp NoticiasTabajara
 
 NoticiasTabajara no settings.py
 
+views.py from django.http import HttpResponse
+
+
