@@ -50,4 +50,7 @@ NoticiasTabajara no settings.py
 
 views.py from django.http import HttpResponse
 
+models.py dentro de noticiasTabajara... incluido as classes
+
+
 
