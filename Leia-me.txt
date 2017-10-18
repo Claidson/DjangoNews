@@ -45,3 +45,6 @@ git reset --hard origin/master
 
 startar aplicação
 django-admin startapp NoticiasTabajara
+
+NoticiasTabajara no settings.py
+
