@@ -72,6 +72,8 @@ Migrations for 'NoticiasTabajara':
     - Add field leitor to comentario
     - Add field pagina to accessrecord
 
+    python manage.py showmigrations
+
     python manage.py shell
 
 

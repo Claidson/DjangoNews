@@ -11,7 +11,7 @@ class Editor(models.Model):
     def __str__(self):
         return self.nome
 
-class Imagem(models.Model):
+class Imagen(models.Model):
     nome = models.CharField(max_length = 50, unique=True)
     caminho = models.ImageField(upload_to = 'static/images', default = 'static/images/django.jpg')
     # https://coderwall.com/p/bz0sng/simple-django-image-upload-to-model-imagefield
@@ -60,7 +60,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length = 100)
     resumo = models.CharField(max_length = 200)
     pagina = models.ForeignKey(Pagina)
-    imagens =models.ForeignKey(Imagem)
+    imagens =models.ForeignKey(Imagen)
     editor = models.ForeignKey(Editor)
     comentarios = [models.ForeignKey(Comentario)]
 
