@@ -47,11 +47,33 @@ git reset --hard origin/master
 startar aplicação
 django-admin startapp NoticiasTabajara
 
+adicionar na lista de bibliotecas
+pip freeze > requirements.txt
+
+
 NoticiasTabajara no settings.py
 
 views.py from django.http import HttpResponse
 
 models.py dentro de noticiasTabajara... incluido as classes
+
+python manage.py makemigrations
+python manage.py migrate
+Migrations for 'NoticiasTabajara':
+  NoticiasTabajara/migrations/0001_initial.py
+    - Create model AccessRecord
+    - Create model Comentario
+    - Create model Editor
+    - Create model Imagem
+    - Create model Leitor
+    - Create model Noticia
+    - Create model Pagina
+    - Add field pagina to noticia
+    - Add field leitor to comentario
+    - Add field pagina to accessrecord
+
+    python manage.py shell
+
 
 
 
