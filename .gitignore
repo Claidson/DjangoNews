@@ -8,3 +8,9 @@ NoticiasTabajara/models.pyc
 NoticiasTabajara/urls.pyc
 NoticiasTabajara/views.pyc
 NoticiasTabajara/migrations/__init__.pyc
+DjangoNews/wsgi.pyc
+NoticiasTabajara/__init__.pyc
+NoticiasTabajara/admin.pyc
+NoticiasTabajara/models.pyc
+NoticiasTabajara/migrations/__init__.pyc
+NoticiasTabajara/migrations/0001_initial.pyc
