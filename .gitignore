@@ -12,5 +12,5 @@ DjangoNews/wsgi.pyc
 NoticiasTabajara/__init__.pyc
 NoticiasTabajara/admin.pyc
 NoticiasTabajara/models.pyc
-NoticiasTabajara/migrations/__init__.pyc
 NoticiasTabajara/migrations/0001_initial.pyc
+NoticiasTabajara/forms.pyc
