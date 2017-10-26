@@ -76,6 +76,6 @@ Migrations for 'NoticiasTabajara':
 
     python manage.py shell
 
-
+pip install git+https://github.com/pbucher/django-bootstrap-datepicker.git
 
 
