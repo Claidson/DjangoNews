@@ -13,4 +13,12 @@ NoticiasTabajara/__init__.pyc
 NoticiasTabajara/admin.pyc
 NoticiasTabajara/models.pyc
 NoticiasTabajara/migrations/0001_initial.pyc
+<<<<<<< HEAD
 NoticiasTabajara/forms.pyc
+=======
+NoticiasTabajara/migrations/__init__.pyc
+NoticiasTabajara/migrations/0001_initial.pyc
+NoticiasTabajara/models.pyc
+NoticiasTabajara/admin.pyc
+NoticiasTabajara/__init__.pyc
+>>>>>>> 432318a3f7df509fde233f6a7038c08943412036
