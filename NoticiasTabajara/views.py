@@ -14,10 +14,10 @@ def index(request):
 def cad(request):
 	form = forms.CadastrarNoticia()
 	if request.method == 'POST':
-		form = forms.CadastrarNoticia(request.POST)
+		form = forms.CadastrarNoticia(request.POST,request.FILES)
 		if form.is_valid():
 			print("Validation susses!")	
-			novanoticia = Noticia.objects.get_or_create(titulo=form.cleaned_data['titulo'],data=form.cleaned_data['data'],resumo=form.cleaned_data['resumo'],texto=form.cleaned_data['texto'])
+			novanoticia = Noticia.objects.get_or_create(titulo=form.cleaned_data['titulo'],data=form.cleaned_data['data'],resumo=form.cleaned_data['resumo'],texto=form.cleaned_data['texto'],imagem=form.cleaned_data['imagem'])
 			
 
 	return render(request,'NoticiasTabajara/CadastrarNoticia.html', {'form':form})

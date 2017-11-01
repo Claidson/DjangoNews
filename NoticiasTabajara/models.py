@@ -59,8 +59,8 @@ class Noticia(models.Model):
     texto = models.CharField(max_length = 500)
     titulo = models.CharField(max_length = 100)
     resumo = models.CharField(max_length = 200)
+    imagem = models.ImageField(upload_to = 'static/images/', default = 'static/images/django.jpg')
     # pagina = models.ForeignKey(Pagina)
-    # imagens =models.ForeignKey(Imagen)
     # editor = models.ForeignKey(Editor)
     # comentarios = [models.ForeignKey(Comentario)]
 

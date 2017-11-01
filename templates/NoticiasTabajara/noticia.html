@@ -35,9 +35,10 @@
 
             <div class="col-12 col-md-9">
                 <div class="row">
-                    {% for noticia in noticias %} {% if noticia.titulo == "Ministro diz que comandantes da PM do RJ são sócios do crime organizado" %}
+                    {% for noticia in noticias %} {% if noticia.titulo == "teste" %}
                     <div class="col-1 col-lg-12">
                         <h2>{{ noticia.titulo }}</h2>
+                        <p><img src="{{noticia.imagem}}" alt=""></p>
                         <p><small>{{ noticia.data}}</small></p>
                         <p>{{noticia.texto}}</p>
 
