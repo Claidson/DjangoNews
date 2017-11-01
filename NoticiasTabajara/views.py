@@ -8,7 +8,7 @@ import forms
 
 # Create your views here.
 def index(request):
-	lista_noticias = Noticia.objects.order_by('titulo')
+	lista_noticias = Noticia.objects.order_by('data')
 	return render(request,'NoticiasTabajara/index.html', context = {"noticias":lista_noticias})    
 
 def cad(request):
@@ -21,3 +21,7 @@ def cad(request):
 			
 
 	return render(request,'NoticiasTabajara/CadastrarNoticia.html', {'form':form})
+
+def noticia(request):
+    	lista_noticias = Noticia.objects.order_by('data')
+	return render(request,'NoticiasTabajara/noticia.html', context = {"noticias":lista_noticias}) 
