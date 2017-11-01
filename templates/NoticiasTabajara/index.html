@@ -18,13 +18,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Notícia Tabajara</a>
+                <a class="navbar-brand" href="#">Notícias Tabajara</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index">Home</a></li>
                 <li><a href="cadastrarnoticia">Cadastro</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li><a href="http://docente.lages.ifsc.edu.br">Docente</a></li>
+                <li><a href="admin">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -42,9 +42,7 @@
             <div class="col-12 col-md-9">
 
                 <div class="jumbotron">
-                    <h1>Notícias Tabajara</h1>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Delegadis gente finis, bibendum egestas augue arcu ut est. Todo mundo vê os porris que eu tomo, mas ninguém vê os
-                        tombis que eu levo! Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.</p>
+                    <img src="{% static 'images/noticias_berex.png' %}" alt="Imagem banner" width="740" height="360">
                 </div>
                 <div class="row">
                     {% for noticia in noticias %}
