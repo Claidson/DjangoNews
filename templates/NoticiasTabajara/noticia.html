@@ -24,7 +24,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index">Home</a></li>
                 <li><a href="cadastrarnoticia">Cadastro</a></li>
-                <li><a href="http://docente.lages.ifsc.edu.br" target="blank">Docente</a></li>
+                <li><a href="http://docente.lages.ifsc.edu.br">Docente</a></li>
                 <li><a href="admin">Login</a></li>
             </ul>
         </div>
@@ -35,15 +35,15 @@
 
             <div class="col-12 col-md-9">
                 <div class="row">
-                    {% for noticia in noticias %} {% if noticia.titulo == "teste" %}
+
                     <div class="col-1 col-lg-12">
                         <h2>{{ noticia.titulo }}</h2>
-                        <p><img src="{{noticia.imagem}}" alt=""></p>
+                        <p>{{noticia.imagem}}</p>
                         <p><small>{{ noticia.data}}</small></p>
                         <p>{{noticia.texto}}</p>
 
                     </div>
-                    {% endif %} {% endfor %}
+
                 </div>
                 <!--/row-->
             </div>

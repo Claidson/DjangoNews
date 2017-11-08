@@ -49,12 +49,12 @@
                     <div class="col-1 col-lg-12">
                         <h2>{{ noticia.titulo }}</h2>
                         <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
-                        <p><a class="btn btn-secondary" href="#" role="button">Detalhes &raquo;</a></p>
-                        
+                        <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
+
                     </div>
                     {% endfor %}
                 </div>
-                  <!--<p><a class="btn btn-secondary" href="{ url 'NoticiasTabajara.views.noticia' id=noticia.titulo %}" role="button">Detalhes &raquo;</a></p>-->
+                <!--<p><a class="btn btn-secondary" href="{ url 'NoticiasTabajara.views.noticia' id=noticia.titulo %}" role="button">Detalhes &raquo;</a></p>-->
                 <!--/row-->
             </div>
             <!--/span-->

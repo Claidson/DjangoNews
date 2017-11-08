@@ -20,6 +20,6 @@ def cad(request):
 			novanoticia = Noticia.objects.get_or_create(titulo=form.cleaned_data['titulo'],data=form.cleaned_data['data'],resumo=form.cleaned_data['resumo'],texto=form.cleaned_data['texto'],imagem=form.cleaned_data['imagem'])
 	return render(request,'NoticiasTabajara/CadastrarNoticia.html', {'form':form})
 
-#def noticia(request, id):
-#   noticia_pagina = Noticia.objects.get(titulo=id)
-	#return render(request,'NoticiasTabajara/noticia.html', context = {"noticia":noticia_pagina}) 
+def noticia(request, noticia_id):
+   noticia = Noticia.objects.get(id=noticia_id)
+   return render(request,'NoticiasTabajara/noticia.html', context = {"noticia":noticia}) 
