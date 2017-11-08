@@ -16,12 +16,10 @@ def cad(request):
 	if request.method == 'POST':
 		form = forms.CadastrarNoticia(request.POST,request.FILES)
 		if form.is_valid():
-			print("Validation susses!")	
+			print("Cadastrado!")	
 			novanoticia = Noticia.objects.get_or_create(titulo=form.cleaned_data['titulo'],data=form.cleaned_data['data'],resumo=form.cleaned_data['resumo'],texto=form.cleaned_data['texto'],imagem=form.cleaned_data['imagem'])
-			
-
 	return render(request,'NoticiasTabajara/CadastrarNoticia.html', {'form':form})
 
-def noticia(request):
-    	lista_noticias = Noticia.objects.order_by('data')
-	return render(request,'NoticiasTabajara/noticia.html', context = {"noticias":lista_noticias}) 
+#def noticia(request, id):
+#   noticia_pagina = Noticia.objects.get(titulo=id)
+	#return render(request,'NoticiasTabajara/noticia.html', context = {"noticia":noticia_pagina}) 
