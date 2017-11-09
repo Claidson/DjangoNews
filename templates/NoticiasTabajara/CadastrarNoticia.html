@@ -1,18 +1,5 @@
 <!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %} {% load staticfiles %}
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Notícias Tabajara</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="index">Home</a></li>
-            <li><a href="cadastrarnoticia">Cadastro</a></li>
-            <li><a href="http://docente.lages.ifsc.edu.br" target="blank">Docente</a></li>
-            <li><a href="admin">Login</a></li>
-        </ul>
-    </div>
-</nav>
 <div class="container">
     <h1>Cadastrar Noticia</h1>
     <form method="POST" enctype="multipart/form-data">
