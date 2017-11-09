@@ -9,7 +9,7 @@
                     <h2>{{ noticia.titulo }}</h2>
                     <img src="../{{noticia.imagem}}" alt="Imagem Noticia">
                     <p><small>{{ noticia.data}}</small></p>
-                    <p>{{noticia.texto}}</p>
+                    <p>{{noticia.texto | safe}}</p>
                     <p><a class="btn btn-secondary" href="{% url 'index' %}" role="button">Voltar &Lt; </a></p>
                 </div>
 

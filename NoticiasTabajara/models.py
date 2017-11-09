@@ -56,7 +56,7 @@ class AccessRecord(models.Model):
 class Noticia(models.Model):
     # nome = models.CharField(max_length=264, unique=True)
     data = models.DateField()
-    texto = models.CharField(max_length = 500)
+    texto = models.TextField()
     titulo = models.CharField(max_length = 100)
     resumo = models.CharField(max_length = 200)
     imagem = models.ImageField(upload_to = 'static/images/', default = 'static/images/django.jpg')
