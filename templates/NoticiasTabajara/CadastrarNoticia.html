@@ -4,6 +4,9 @@
     <h1>Cadastrar Noticia</h1>
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group"> {% csrf_token %} {{form.as_p}}
+            <script>
+                CKEDITOR.replace('texto');
+            </script>
             <input type="submit" value="Enviar">
         </div>
     </form>

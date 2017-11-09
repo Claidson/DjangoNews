@@ -78,4 +78,6 @@ Migrations for 'NoticiasTabajara':
 
 pip install git+https://github.com/pbucher/django-bootstrap-datepicker.git
 
+https://github.com/django-ckeditor/django-ckeditor#installation
+
 
