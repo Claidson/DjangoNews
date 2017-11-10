@@ -79,5 +79,7 @@ Migrations for 'NoticiasTabajara':
 pip install git+https://github.com/pbucher/django-bootstrap-datepicker.git
 
 https://github.com/django-ckeditor/django-ckeditor#installation
-
+https://docs.djangoproject.com/pt-br/1.11/howto/custom-template-tags/
+https://docs.djangoproject.com/pt-br/1.11/ref/templates/builtins/#std:templatefilter-urlize
+https://stackoverflow.com/questions/2080559/disable-html-escaping-in-djangos-textfield?noredirect=1&lq=1
 
