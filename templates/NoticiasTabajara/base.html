@@ -19,11 +19,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Notícias Tabajara</a>
+                <a class="navbar-brand" href="#"><span class="badge badge-secondary">Notícias Tabajara</span></a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                {% if user.is_authenticated %}
                 <li><a href="{% url 'cad' %}">Cadastro</a></li>
+                {% endif %}
                 <li><a href="http://docente.lages.ifsc.edu.br" target="blank">Docente</a></li>
                 <li><a href="admin">Login</a></li>
             </ul>
