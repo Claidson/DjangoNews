@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 from NoticiasTabajara.models import *
+from django.shortcuts import redirect
 
 from django.shortcuts import render
 import forms
