@@ -7,11 +7,11 @@
         <div class="col-12 col-md-9">
 
             <div class="jumbotron">
-                <img src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
+                <img class="img-thumbnail img-responsive" src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
             </div>
             <div class="row">
                 {% for noticia in noticias %}
-                <div class="col-1 col-lg-12">
+                <div class="col-12 col-lg-12">
                     <h2>{{ noticia.titulo }}</h2>
                     <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
                     <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>

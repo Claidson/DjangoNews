@@ -5,9 +5,9 @@
         <div class="col-12 col-md-9">
             <div class="row">
 
-                <div class="col-1 col-lg-12">
+                <div class="col-12 col-lg-12">
                     <h2>{{ noticia.titulo }}</h2>
-                    <img src="{% static 'images/' %}{{noticia.imagem}}" alt="Imagem Noticia">
+                    <img class="img-thumbnail img-responsive" src="{% static 'images/' %}{{noticia.imagem}}" alt="Imagem Noticia">
                     <p><small>{{ noticia.data}}</small></p>
                     <p>{{noticia.texto | safe}}</p>
                     <p><a class="btn btn-secondary" href="{% url 'index' %}" role="button">Voltar &Lt; </a></p>
