@@ -1,0 +1,54 @@
+<!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %} {% load staticfiles %}
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+
+            <div class="jumbotron">
+                <img class="img-thumbnail img-responsive" src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
+            </div>
+            <div class="row">
+                {% for noticia in paginas.object_list %}
+                <div class="col-12 col-lg-12">
+                    <h2>{{ noticia.titulo }}</h2>
+                    <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
+                    <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
+
+                </div>
+                {% endfor %}
+            </div>
+
+
+            <!--/row-->
+        </div>
+        <!--/span-->
+
+        <div class="col-6 col-md-3 sidebar-offcanvas " id="sidebar">
+            <div class="list-group ">
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+            </div>
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+
+    <footer>
+        <p>&copy; IFSC 2017</p>
+    </footer>
+
+</div>
+<!--/.container-->
+{% endblock %}

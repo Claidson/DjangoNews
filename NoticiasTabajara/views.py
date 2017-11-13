@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from NoticiasTabajara.models import *
 from django.shortcuts import redirect
-
+from django.core.paginator import Paginator
 from django.shortcuts import render
 import forms
 
@@ -25,4 +25,18 @@ def cad(request):
 
 def noticias(request, noticia_id):
    noticia = Noticia.objects.get(id=noticia_id)
-   return render(request,'NoticiasTabajara/noticia.html', context = {"noticia":noticia}) 
+   return render(request,'NoticiasTabajara/noticia.html', context = {"noticia":noticia})
+
+def pagina(request):
+	pagina_lista = Noticia.objects.order_by('data')
+	paginator = Paginator(pagina_lista, 25)
+	try:
+		page = int(request.GET.get('page', '1'))
+	except ValueError:
+		page = 1
+    # Se o page request (9999) está fora da lista, mostre a última página.
+	try:
+		paginas = paginator.page(page)
+	except (EmptyPage, InvalidPage):
+		paginas = paginator.page(paginator.num_pages)
+	return render('NoticiasTabajara/pagina.html', {"paginas": paginas})
