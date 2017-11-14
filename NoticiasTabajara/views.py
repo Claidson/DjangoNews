@@ -31,12 +31,12 @@ def pagina(request):
 	pagina_lista = Noticia.objects.order_by('data')
 	paginator = Paginator(pagina_lista, 1)
 	try:
-		page = int(request.GET.get('page', '1'))
+		pagina = int(request.GET.get('pagina', '1'))
 	except ValueError:
-		page = 1
+		pagina = 1
     # Se o page request (9999) está fora da lista, mostre a última página.
 	try:
-		paginas = paginator.page(page)
+		paginas = paginator.page(pagina)
 	except (EmptyPage, InvalidPage):
 		paginas = paginator.page(paginator.num_pages)
 	return render(request,'NoticiasTabajara/pagina.html', context = {"paginas": paginas})
