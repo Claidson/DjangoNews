@@ -24,20 +24,21 @@
                     <ul class="pagination ">
                       <li class="page-item ">
                             {% if paginas.has_previous %}
-                        <a class="page-link" href="?pagina={{ paginas.previous_page_number }}" tabindex="-1" aria-label="Anterior">
+                            <a class="page-link" style="color:#212529" href="?pagina={{ paginas.previous_page_number }}" tabindex="-1" aria-label="Anterior">
                           <span aria-hidden="true">&laquo;</span>
                           <span class="sr-only">Anterior</span>
                         </a>
                     
                     {% endif %}
                       </li>
-                      <li class="page-item active ">
-                        <a class="page-link" href="#">{{ paginas.number }} <span class="sr-only">(current)</span></a>
+                      <li class="page-item active " >
+                        <a class="page-link" style="color:#fff;background-color: #727B84;
+                        border-color: #727B84;" href="#">{{ paginas.number }} <span class="sr-only">(current)</span></a>
                       </li>
                
                       <li class="page-item">
                             {% if paginas.has_next %}
-                        <a class="page-link" href="?pagina={{ paginas.next_page_number }}" aria-label="Próximo">
+                        <a class="page-link" style="color:#212529" href="?pagina={{ paginas.next_page_number }}" aria-label="Próximo">
                           <span aria-hidden="true">&raquo;</span>
                           <span class="sr-only">Próxima</span>
                         </a>
