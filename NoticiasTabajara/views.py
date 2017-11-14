@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from NoticiasTabajara.models import *
 from django.shortcuts import redirect
-from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.shortcuts import render, render_to_response
 import forms
 
 # Create your views here.
@@ -29,7 +29,7 @@ def noticias(request, noticia_id):
 
 def pagina(request):
 	pagina_lista = Noticia.objects.order_by('data')
-	paginator = Paginator(pagina_lista, 25)
+	paginator = Paginator(pagina_lista, 1)
 	try:
 		page = int(request.GET.get('page', '1'))
 	except ValueError:
@@ -39,4 +39,4 @@ def pagina(request):
 		paginas = paginator.page(page)
 	except (EmptyPage, InvalidPage):
 		paginas = paginator.page(paginator.num_pages)
-	return render('NoticiasTabajara/pagina.html', {"paginas": paginas})
+	return render(request,'NoticiasTabajara/pagina.html', context = {"paginas": paginas})

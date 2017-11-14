@@ -10,14 +10,33 @@
                 <img class="img-thumbnail img-responsive" src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
             </div>
             <div class="row">
-                {% for noticia in paginas.object_list %}
-                <div class="col-12 col-lg-12">
-                    <h2>{{ noticia.titulo }}</h2>
-                    <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
-                    <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
+                    {% for noticia in paginas.object_list %}
+                    <div class="col-12 col-lg-12">
+                        <h2>{{ noticia.titulo }}</h2>
+                        <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
+                        <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
+    
+                    </div>
+                    {% endfor %}
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if paginas.has_previous %}
+                                <a href="?page={{ paginas.previous_page_number }}">anterior</a>
+                            {% endif %}
+                    
+                            <span class="current">
+                                Página {{ paginas.number }} de {{ paginas.paginator.num_pages }}
+                            </span>
+                    
+                            {% if paginas.has_next %}
+                                <a href="?page={{ paginas.next_page_number }}">próxima</a>
+                            {% endif %}
+                        </span>
+                    </div>
+             
 
-                </div>
-                {% endfor %}
+
+
             </div>
 
 
