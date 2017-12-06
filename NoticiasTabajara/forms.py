@@ -75,3 +75,13 @@ class UserRegisterForm(forms.ModelForm):
         if email_qs.exists():
             raise forms.ValidationError("This email has already been registered")
         return email
+
+class CadastrarComentario(forms.Form):
+    data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    nome = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    email = forms.EmailField(label='Email address')
+    texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
+    active_status = forms.BooleanField()
+
+    def __str__(self):
+        return self.nome

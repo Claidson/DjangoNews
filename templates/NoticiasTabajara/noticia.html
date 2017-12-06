@@ -11,6 +11,17 @@
                     <p><small>{{ noticia.data}}</small></p>
                     <p>{{noticia.texto | safe}}</p>
                     <p><a class="btn btn-secondary" href="{% url 'index' %}" role="button">Voltar &Lt; </a></p>
+
+                    <p>
+                        <h2>Comentários</h2>
+                    </p>
+                    {% csrf_token %} {{form.as_p}}
+                    <input type="submit" value="Enviar" class="btn btn-primary">{% for comentario in comentarios %}
+                    <p><small>{{ comentario.data}}</small>
+                        <p>Nome: {{comentario.nome}} e-mail: {{comentario.email}}</p>
+                        <p>{{comentario.texto}}</p>
+                        {% if user.is_superuser %} {{comentario.is_active}} {% endif %} {%endfor%}
+
                 </div>
 
             </div>

@@ -19,25 +19,6 @@ class Imagen(models.Model):
     def __str__(self):
         return self.nome 
 
-# class ImageUploadForm(models.Model):
-
-#     image = forms.ImageField()
-
-class Leitor(models.Model):
-    nome = models.CharField(max_length = 50, unique=True)
-    email = models.CharField(max_length = 50)
-    
-    def __str__(self):
-        return self.nome
-
-class Comentario(models.Model):
-    leitor = models.ForeignKey(Leitor)
-    data = models.DateField()
-    texto = models.CharField(max_length = 200)
-
-    def __str__(self):
-        return str(self.data)
-
 
 class Pagina(models.Model):
     nome = models.CharField(max_length=264, unique=True)
@@ -54,15 +35,25 @@ class AccessRecord(models.Model):
         return str(self.data)
 
 class Noticia(models.Model):
-    # nome = models.CharField(max_length=264, unique=True)
     data = models.DateField()
     texto = models.TextField()
     titulo = models.CharField(max_length = 100)
     resumo = models.CharField(max_length = 200)
-    imagem = models.ImageField(upload_to = 'fotos/%Y/%m/%d', default = 'static/images/django.jpg')
-    # pagina = models.ForeignKey(Pagina)
-    # editor = models.ForeignKey(Editor)
-    # comentarios = [models.ForeignKey(Comentario)]
+    imagem = models.ImageField(upload_to = 'fotos/%Y/%m/%d', default = 'static/images/django.jpg')  
 
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):        
+    data = models.DateField()
+    texto = models.CharField(max_length = 200,null=True)    
+    nome = models.CharField(max_length = 50,null=True)
+    email = models.CharField(max_length = 50,null=True)
+    active_status = models.BooleanField(default=0)
+    noticia_fk = models.ForeignKey(Noticia,null=True)
+
+    def is_active(self):
+        return bool(self.active_status)
+
+    def __str__(self):
+        return str(self.nome)
