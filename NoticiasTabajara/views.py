@@ -45,10 +45,10 @@ def noticias(request, noticia_id):
     return render(request,'NoticiasTabajara/noticia.html', context = {'noticia':noticia, 'form':form ,'comentarios':comentarios})
 
 def pagina(request):
-	pagina_lista = Noticia.objects.order_by('data')
-	paginator = Paginator(pagina_lista, 1)
+	pagina_lista = Noticia.objects.order_by('data').reverse()
+	paginator = Paginator(pagina_lista, 10)
 	try:
-		pagina = int(request.GET.get('pagina', '1'))
+		pagina = int(request.GET.get('pagina', "1"))
 	except ValueError:
 		pagina = 1
     # Se o page request (9999) está fora da lista, mostre a última página.
@@ -77,7 +77,7 @@ def login_view(request):
 def register_view(request):
     print(request.user.is_authenticated())
     next = request.GET.get('next')
-    title = "Register"
+    title = "Registrar"
     form = UserRegisterForm(request.POST or None)
     if form.is_valid():
         user = form.save(commit=False)

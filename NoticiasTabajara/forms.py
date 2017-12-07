@@ -20,7 +20,7 @@ class CadastrarNoticia(forms.Form):
 User = get_user_model()
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self, *args, **kwargs):
@@ -33,17 +33,17 @@ class UserLoginForm(forms.Form):
         if username and password:
             user = authenticate(username=username, password=password)
             if not user:
-                raise forms.ValidationError("This user does not exist")
+                raise forms.ValidationError("Usuário não existe")
             if not user.check_password(password):
-                raise forms.ValidationError("Incorrect passsword")
+                raise forms.ValidationError("Senha icorreta")
             if not user.is_active:
-                raise forms.ValidationError("This user is not longer active.")
+                raise forms.ValidationError("Usuário inativo")
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
 
 class UserRegisterForm(forms.ModelForm):
-    email = forms.EmailField(label='Email address')
-    email2 = forms.EmailField(label='Confirm Email')
+    email = forms.EmailField(label='Email:         ')
+    email2 = forms.EmailField(label='Confirmar Email')
     password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
@@ -70,18 +70,18 @@ class UserRegisterForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         email2 = self.cleaned_data.get('email2')
         if email != email2:
-            raise forms.ValidationError("Emails must match")
+            raise forms.ValidationError("Emails não correspondem")
         email_qs = User.objects.filter(email=email)
         if email_qs.exists():
-            raise forms.ValidationError("This email has already been registered")
+            raise forms.ValidationError("Email já registrado")
         return email
 
 class CadastrarComentario(forms.Form):
     data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
     nome = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
-    email = forms.EmailField(label='Email address')
+    email = forms.EmailField(label='Email:')
     texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
-    # active_status = forms.BooleanField()
+    active_status = forms.BooleanField(label='')
 
     def __str__(self):
         return self.nome
