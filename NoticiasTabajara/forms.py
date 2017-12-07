@@ -81,7 +81,7 @@ class CadastrarComentario(forms.Form):
     nome = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
     email = forms.EmailField(label='Email address')
     texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
-    active_status = forms.BooleanField()
+    # active_status = forms.BooleanField()
 
     def __str__(self):
         return self.nome

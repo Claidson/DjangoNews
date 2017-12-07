@@ -33,14 +33,14 @@ def cad(request):
 
 def noticias(request, noticia_id):
     noticia = Noticia.objects.get(id=noticia_id)
-    comentarios = Comentario.objects.filter(noticia_fk=noticia_id)
+    comentarios = Comentario.objects.filter(noticia_fk=noticia_id,active_status=True)
     form = forms.CadastrarComentario()
     if request.method == 'POST':
         pDict = request.POST.copy()
         form = forms.CadastrarComentario(pDict)
         if form.is_valid():
             print("Cadastrado!")
-            novocoment = Comentario.objects.get_or_create(data=form.cleaned_data['data'],nome=form.cleaned_data['nome'],email=form.cleaned_data['email'],texto=form.cleaned_data['texto'],active_status=form.cleaned_data['active_status'],noticia_fk=noticia_id)
+            novocoment = Comentario.objects.get_or_create(data=form.cleaned_data['data'],nome=form.cleaned_data['nome'],email=form.cleaned_data['email'],texto=form.cleaned_data['texto'],active_status=form.cleaned_data['active_status'],noticia_fk=noticia)
             form = forms.CadastrarComentario()
     return render(request,'NoticiasTabajara/noticia.html', context = {'noticia':noticia, 'form':form ,'comentarios':comentarios})
 
