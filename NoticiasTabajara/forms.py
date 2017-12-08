@@ -42,7 +42,7 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    email = forms.EmailField(label='Email:         ')
+    email = forms.EmailField(label='Email')
     email2 = forms.EmailField(label='Confirmar Email')
     password = forms.CharField(widget=forms.PasswordInput)
 
@@ -81,7 +81,7 @@ class CadastrarComentario(forms.Form):
     nome = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
     email = forms.EmailField(label='Email:')
     texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
-    active_status = forms.BooleanField(label='')
+    # active_status = forms.BooleanField(label='')
 
     def __str__(self):
         return self.nome

@@ -40,7 +40,7 @@ def noticias(request, noticia_id):
         form = forms.CadastrarComentario(pDict)
         if form.is_valid():
             print("Cadastrado!")
-            novocoment = Comentario.objects.get_or_create(data=form.cleaned_data['data'],nome=form.cleaned_data['nome'],email=form.cleaned_data['email'],texto=form.cleaned_data['texto'],active_status=form.cleaned_data['active_status'],noticia_fk=noticia)
+            novocoment = Comentario.objects.get_or_create(data=form.cleaned_data['data'],nome=form.cleaned_data['nome'],email=form.cleaned_data['email'],texto=form.cleaned_data['texto'],noticia_fk=noticia)
             form = forms.CadastrarComentario()
     return render(request,'NoticiasTabajara/noticia.html', context = {'noticia':noticia, 'form':form ,'comentarios':comentarios})
 
