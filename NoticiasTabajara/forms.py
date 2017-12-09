@@ -5,28 +5,31 @@ from django.contrib.auth import (
     get_user_model,
     login,
     logout,
-    )
+)
+
 
 class CadastrarNoticia(forms.Form):
-    titulo = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
-    resumo = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
+    titulo = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    resumo = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
+    texto = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     imagem = forms.ImageField(required=False)
 
     def __str__(self):
         return self.titulo
 
+
 User = get_user_model()
 
+
 class UserLoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
-       
+
         # user_qs = User.objects.filter(username=username)
         # if user_qs.count() == 1:
         #     user = user_qs.first()
@@ -76,11 +79,13 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError("Email já registrado")
         return email
 
+
 class CadastrarComentario(forms.Form):
     data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    nome = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    nome = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email:')
-    texto = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control'}))
+    texto = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+
     # active_status = forms.BooleanField(label='')
 
     def __str__(self):

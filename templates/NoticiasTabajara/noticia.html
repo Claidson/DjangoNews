@@ -45,12 +45,43 @@
                                 </h6>
                             </div>
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                    <form method="POST" enctype="multipart/form-data">
-                                        {% csrf_token %} {{form.as_p}}
-                                        <input type="submit" value="Enviar" class="btn btn-primary">
-                                    </form>
-                                </div>
+{#                                <div class="card-body">#}
+{#                                    <form method="POST" enctype="multipart/form-data">#}
+{#                                        {% csrf_token %} {{form.as_p}}#}
+{#                                        <input type="submit" value="Enviar" class="btn btn-primary">#}
+{#                                    </form>#}
+{#                                </div>#}
+                                 <div class="col-md-10 clear"><hr>
+            </div>
+
+
+           <div class="col-md-10">
+
+
+           			<div class="container-fluid well span8">
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" action="" method="POST">
+                        <textarea class="form-control counted" name="message" placeholder="Digite uma mensagem" rows="5" style="margin-bottom:10px;"></textarea>
+                       {% csrf_token %} {{form.as_p}}
+                        <h6 class="pull-right" id="counter">320 caracteres restando</h6>
+                        <button class="btn btn-info" type="submit">Comentar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</div>
+ </div>
+
+
+
+
+
+
+
                             </div>
                         </div>
 
