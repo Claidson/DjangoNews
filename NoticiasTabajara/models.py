@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from datetime import datetime
 
 from django.db import models
 
@@ -51,7 +52,7 @@ class Noticia(models.Model):
 
 
 class Comentario(models.Model):
-    data = models.DateField()
+    data = datetime.now()
     texto = models.CharField(max_length=200, null=True)
     nome = models.CharField(max_length=50, null=True)
     email = models.CharField(max_length=50, null=True)

@@ -14,7 +14,7 @@
                     <div class="col-12 col-lg-12">
                         <h2>{{ noticia.titulo }}</h2>
                         <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
-                        <p><small>{{comentarios}}</small></p>
+                        <p><small><i class="balao"></i> &nbsp; {{comentarios |length  }}</small></p>
                         <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
     
                     </div>
