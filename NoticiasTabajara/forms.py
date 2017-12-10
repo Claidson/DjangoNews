@@ -81,7 +81,7 @@ class UserRegisterForm(forms.ModelForm):
 
 
 class CadastrarComentario(forms.Form):
-    data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    # data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
     nome = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email:')
     texto = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))

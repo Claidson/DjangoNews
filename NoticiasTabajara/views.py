@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from datetime import datetime
+
 from django.http import HttpResponse
 from NoticiasTabajara.models import *
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 import forms
 from django.contrib.auth import (
     authenticate,
@@ -47,7 +50,7 @@ def noticias(request, noticia_id):
         form = forms.CadastrarComentario(pDict)
         if form.is_valid():
             print("Cadastrado!")
-            novocoment = Comentario.objects.get_or_create(data=form.cleaned_data['data'],
+            novocoment = Comentario.objects.get_or_create(data=datetime.now(),
                                                           nome=form.cleaned_data['nome'],
                                                           email=form.cleaned_data['email'],
                                                           texto=form.cleaned_data['texto'], noticia_fk=noticia)
