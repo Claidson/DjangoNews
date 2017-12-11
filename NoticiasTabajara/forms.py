@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
 from django import forms
+from django.contrib.admin.utils import label_for_field
 from django.contrib.auth import (
     authenticate,
     get_user_model,
@@ -23,8 +24,8 @@ User = get_user_model()
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='Nome', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Senha', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")
@@ -45,9 +46,11 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    email = forms.EmailField(label='Email')
-    email2 = forms.EmailField(label='Confirmar Email')
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='Nome', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Senha', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    email2 = forms.EmailField(label='Confirme o Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+
 
     class Meta:
         model = User
@@ -83,7 +86,7 @@ class UserRegisterForm(forms.ModelForm):
 class CadastrarComentario(forms.Form):
     # data = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
     nome = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(label='Email:')
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
     texto = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
 
     # active_status = forms.BooleanField(label='')

@@ -72,7 +72,7 @@ def pagina(request):
         paginas = paginator.page(pagina)
     except (EmptyPage, InvalidPage):
         paginas = paginator.page(paginator.num_pages)
-    return render(request, 'NoticiasTabajara/pagina.html', context={"paginas": paginas,'comentarios': comentarios})
+    return render(request, 'NoticiasTabajara/pagina.html', context={"paginas": paginas, 'comentarios': comentarios})
 
 
 def login_view(request):

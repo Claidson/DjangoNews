@@ -1,13 +1,23 @@
-<!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %}
-<div class='col-sm-6 col-sm-offset-3'>
-    <h1>{{ title }}</h1>
-    <hr/>
+    <!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %}
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h1>{{ title }}</h1>
+        <hr/>
 
-    <form method='POST' action='' enctype='multipart/form-data'>
-        <div class="form-group">{% csrf_token %} {{form.as_p}}
-        <input type='submit'  class="btn btn-primary" value='{{ title }}' />
-        <input type="Reset" value="Apagar tudo" class="btn btn-sm align-middle btn-outline-secondary">       
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form method="POST" enctype="multipart/form-data" class="form-control">
+    {% for field in form %}
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+                <br>
+<input type="submit" value="{{ title }}" class="btn btn-secondary">
+                    <input type="Reset" value="Apagar tudo" class="btn btn-sm align-middle btn-outline-secondary">
+</form>
+            </div>
+        </div>
     </div>
-    </form>
-</div>
-{% endblock body_block %}
+    {% endblock body_block %}

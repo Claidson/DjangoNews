@@ -12,6 +12,15 @@
     text-decoration: inherit;
 
 }
+.visualizacao:before {
+    content: "\f06e";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+
+}
+
 #linha {
   width: 100%;
   border-bottom: 1px solid #555555;
@@ -24,7 +33,10 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-
     border-radius: .25rem;
 }
 
+#linkPagina {
+color: #212529;
+
+}

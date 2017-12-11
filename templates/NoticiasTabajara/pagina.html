@@ -1,86 +1,106 @@
-<!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %} {% load staticfiles %}
+    <!DOCTYPE html> {% extends "NoticiasTabajara/base.html" %} {% block body_block %} {% load staticfiles %}
 
-<div class="container">
+    <div class="container">
 
-    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="row row-offcanvas row-offcanvas-right">
 
-        <div class="col-12 col-md-9">
+            <div class="col-12 col-md-9">
 
-            <div class="jumbotron">
-                <img class="img-thumbnail img-responsive" src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
-            </div>
-            <div class="row">
-                    {% for noticia in paginas.object_list %}
-                    <div class="col-12 col-lg-12">
-                        <h2>{{ noticia.titulo }}</h2>
-                        <p><small>{{ noticia.data}}</small></br>{{noticia.resumo}}</p>
-                        <p><small><i class="balao"></i> &nbsp; {{comentarios |length  }}</small></p>
-                        <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>
-    
-                    </div>
-                    {% endfor %}
+                <div class="jumbotron">
+                    <img class="img-thumbnail img-responsive" src="{% static 'images/noticiaIndex.jpg' %}" alt="Imagem banner">
+                </div>
+                <div class="row">
 
-            </div>
-            <nav aria-label="..." >
-                    <ul class="pagination ">
-                      <li class="page-item ">
-                            {% if paginas.has_previous %}
-                            <a class="page-link" style="color:#212529" href="?pagina={{ paginas.previous_page_number }}" tabindex="-1" aria-label="Anterior">
-                          <span aria-hidden="true">&laquo;</span>
-                          <span class="sr-only">Anterior</span>
-                        </a>
-                    
-                    {% endif %}
-                      </li>
-                      <li class="page-item active " >
-                        <a class="page-link" style="color:#fff;background-color: #727B84;
-                        border-color: #727B84;" href="#">{{ paginas.number }} <span class="sr-only">(current)</span></a>
-                      </li>
-               
-                      <li class="page-item">
-                            {% if paginas.has_next %}
-                        <a class="page-link" style="color:#212529" href="?pagina={{ paginas.next_page_number }}" aria-label="Próximo">
-                          <span aria-hidden="true">&raquo;</span>
-                          <span class="sr-only">Próxima</span>
-                        </a>
-                        {% endif %}
-                      </li>
-                    </ul>
-                    <p class="h6 text-right">
-                            <small class="text-muted">
-                    Página {{ paginas.number }} de {{ paginas.paginator.num_pages }}
-                            </small>
-                   </p>
-                  </nav>
-
-            <!--/row-->
-        </div>
-        <!--/span-->
-
-        <div class="col-6 col-md-3 sidebar-offcanvas " id="sidebar">
-            <div class="list-group ">
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-                <a href="#" class="list-group-item list-group-item-secondary">Link</a>
-            </div>
-        </div>
-        <!--/span-->
+                        <!--noticias inicio -->
+                        {% for noticia in paginas.object_list %}
+    {#                    <div class="col-12 col-lg-12">#}
+    {#                        <h2><a id="linkPagina" href="{% url 'noticias' noticia.id %}">{{ noticia.titulo }}</a></h2>#}
+    {#                        <p><small>{{ noticia.data}}</small>#}
+    {#                            </br>{{noticia.resumo}}</p>#}
+    {#                        <p><small><i class="balao"></i> &nbsp; {{comentarios |length  }}</small></p>#}
+    {#                        <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>#}
+    {#    #}
+    {#                    </div>#}
+                            <div class="media">
+                                <a id="linkPagina" href="{% url 'noticias' noticia.id %}">
+      <img class="img-thumbnail img-responsive" width="150" height="90" src="{% static 'images/' %}{{noticia.imagem}}" alt="Imagem Noticia">
+                            </a>
+                                <div class="media-body">
+    {#      <h5 class="mt-0"><a id="linkPagina" href="{% url 'noticias' noticia.id %}">{{ noticia.titulo }}</a></h5>#}
+          <div class="alert alert-dark" role="alert">
+              <a id="linkPagina" href="{% url 'noticias' noticia.id %}">{{ noticia.titulo }}</a>
     </div>
-    <!--/row-->
+          <p><small>&nbsp;&nbsp;{{ noticia.data|date:"d/M/Y"}}</small>&nbsp;&nbsp;<small><i class="visualizacao"></i> &nbsp; {{ comentarios |length |add:"+85"  }}</small>
+            </br>{{noticia.resumo}}</p>
+          <p><small><i class="balao"></i> &nbsp; {{comentarios |length  }}&nbsp; Comentarios</small></p>
+    {#        <p><a class="btn btn-secondary" href="{% url 'noticias' noticia.id %}" role="button">Detalhes &raquo;</a></p>#}
+      </div>
+    </div>
 
-    <hr>
+                        {% endfor %}
+                </div>
 
-    <footer>
-        <p>&copy; IFSC 2017</p>
-    </footer>
+                      <!--/noticias  -->
+                <nav aria-label="..." >
+                    <ul class="pagination ">
+                        <li class="page-item ">
+                            {% if paginas.has_previous %}
+                                <a class="page-link" style="color:#212529" href="?pagina={{ paginas.previous_page_number }}" tabindex="-1" aria-label="Anterior">
+                                    <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Anterior</span>
+                            </a>
 
-</div>
-<!--/.container-->
-{% endblock %}
+                        {% endif %}
+                          </li>
+                          <li class="page-item active " >
+                            <a class="page-link" style="color:#fff;background-color: #727B84;
+                            border-color: #727B84;" href="#">{{ paginas.number }} <span class="sr-only">(current)</span></a>
+                          </li>
+
+                          <li class="page-item">
+                                {% if paginas.has_next %}
+                            <a class="page-link" style="color:#212529" href="?pagina={{ paginas.next_page_number }}" aria-label="Próximo">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Próxima</span>
+                            </a>
+                            {% endif %}
+                          </li>
+                        </ul>
+                        <p class="h6 text-right">
+                                <small class="text-muted">
+                        Página {{ paginas.number }} de {{ paginas.paginator.num_pages }}
+                                </small>
+                       </p>
+                      </nav>
+
+                <!--/row-->
+            </div>
+            <!--/span-->
+
+            <div class="col-6 col-md-3 sidebar-offcanvas " id="sidebar">
+                <div class="list-group ">
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                    <a href="#" class="list-group-item list-group-item-secondary">Link</a>
+                </div>
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+
+        <hr>
+
+        <footer>
+            <p>&copy; IFSC 2017</p>
+        </footer>
+
+    </div>
+    <!--/.container-->
+    {% endblock %}
